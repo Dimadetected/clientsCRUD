@@ -1,6 +1,4 @@
-package cmd
-
-import "github.com/Dimadetected/clientsCRUD"
+package main
 
 func main() {
 

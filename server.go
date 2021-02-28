@@ -1,11 +1,19 @@
 package clientsCRUD
 
-import "net/http"
+import (
+	"net/http"
+	"time"
+)
 
 type Server struct {
-	port string
+	http *http.Server
 }
 
-func (s *Server) Run() {
-	http.ListenAndServe(s.port, nil)
+func (s *Server) Run(port string) {
+	s.http = &http.Server{
+		Addr:           ":" + port,
+		MaxHeaderBytes: 1 << 20,
+		ReadTimeout:    10 * time.Second,
+		WriteTimeout:   10 * time.Second,
+	}
 }
