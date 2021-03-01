@@ -29,13 +29,13 @@ func (r *AuthDB) CreateUser(user clientsCRUD.User) (int, error) {
 }
 func (r *AuthDB) GetUser(username, password string) (clientsCRUD.User, error) {
 	var user clientsCRUD.User
-	fmt.Println(username, password)
+
 	query := fmt.Sprintf(`SELECT * FROM %s WHERE username = $1 and password = $2`, usersTable)
 	err := r.db.Get(&user, query, username, password)
-	fmt.Println(user)
-	//if err != nil {
-	//	return clientsCRUD.User{}, err
-	//}
+
+	if err != nil {
+		return clientsCRUD.User{}, err
+	}
 
 	return user, err
 

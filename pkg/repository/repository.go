@@ -11,11 +11,11 @@ type Authorization interface {
 }
 
 type Client interface {
-	Create(userId int, client clientsCRUD.Client) (int, error)
-	GetAll(userId int) ([]clientsCRUD.Client, error)
-	GetById(userId, clientId int) (clientsCRUD.Client, error)
-	Delete(userId, clientId int) error
-	Update(userId, clientId int, client clientsCRUD.Client) error
+	Create(client clientsCRUD.Client) (int, error)
+	GetAll() ([]clientsCRUD.Client, error)
+	GetById(clientId int) (clientsCRUD.Client, error)
+	Delete(clientId int) error
+	Update(clientId int, input clientsCRUD.UpdateClient) error
 }
 
 type Sale interface {
@@ -23,7 +23,7 @@ type Sale interface {
 	GetAll(userId int) ([]clientsCRUD.Sale, error)
 	GetById(userId, saleId int) (clientsCRUD.Sale, error)
 	Delete(userId, saleId int) error
-	Update(userId, saleId int, client clientsCRUD.Sale) error
+	Update(userId, saleId int, input clientsCRUD.UpdateSale) error
 }
 
 type Repository struct {

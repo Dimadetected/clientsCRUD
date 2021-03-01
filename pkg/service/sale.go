@@ -26,6 +26,6 @@ func (s *SaleService) GetById(userId, clientId int) (clientsCRUD.Sale, error) {
 func (s *SaleService) Delete(userId, clientId int) error {
 	return s.repo.Delete(userId, clientId)
 }
-func (s *SaleService) Update(userId, clientId int, client clientsCRUD.Sale) error {
-	return s.repo.Update(userId, clientId, client)
+func (s *SaleService) Update(userId, clientId int, input clientsCRUD.UpdateSale) error {
+	return s.repo.Update(userId, clientId, input)
 }

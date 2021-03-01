@@ -14,18 +14,18 @@ func NewClientService(repo repository.Client) *ClientService {
 		repo: repo,
 	}
 }
-func (s *ClientService) Create(userId int, client clientsCRUD.Client) (int, error) {
-	return s.repo.Create(userId, client)
+func (s *ClientService) Create(client clientsCRUD.Client) (int, error) {
+	return s.repo.Create(client)
 }
-func (s *ClientService) GetAll(userId int) ([]clientsCRUD.Client, error) {
-	return s.repo.GetAll(userId)
+func (s *ClientService) GetAll() ([]clientsCRUD.Client, error) {
+	return s.repo.GetAll()
 }
-func (s *ClientService) GetById(userId, clientId int) (clientsCRUD.Client, error) {
-	return s.repo.GetById(userId, clientId)
+func (s *ClientService) GetById(clientId int) (clientsCRUD.Client, error) {
+	return s.repo.GetById(clientId)
 }
-func (s *ClientService) Delete(userId, clientId int) error {
-	return s.repo.Delete(userId, clientId)
+func (s *ClientService) Delete(clientId int) error {
+	return s.repo.Delete(clientId)
 }
-func (s *ClientService) Update(userId, clientId int, client clientsCRUD.Client) error {
-	return s.repo.Update(userId, clientId, client)
+func (s *ClientService) Update(clientId int, input clientsCRUD.UpdateClient) error {
+	return s.repo.Update(clientId, input)
 }

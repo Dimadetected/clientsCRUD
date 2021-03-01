@@ -29,6 +29,6 @@ func (r *SaleDB) Create(userId int, sale clientsCRUD.Sale) (int, error) {
 func (r *SaleDB) Delete(userId, saleId int) error {
 	return nil
 }
-func (r *SaleDB) Update(userId, saleId int, sale clientsCRUD.Sale) error {
+func (r *SaleDB) Update(userId, saleId int, input clientsCRUD.UpdateSale) error {
 	return nil
 }

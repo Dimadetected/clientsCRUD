@@ -22,7 +22,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		auth.POST("/sign-up", h.SignUp)
 	}
 
-	clients := router.Group("/clients")
+	clients := router.Group("/clients", h.UserIdentity)
 	{
 		clients.GET("/", h.getAllClients)
 		clients.GET("/:id", h.getByIdClient)
@@ -36,7 +36,7 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		}
 	}
 
-	sales := router.Group("/sales")
+	sales := router.Group("/sales", h.UserIdentity)
 	{
 		sales.POST("/", h.createSale)
 		sales.PUT("/:id", h.updateSale)
