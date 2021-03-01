@@ -14,18 +14,18 @@ func NewSaleService(repo repository.Sale) *SaleService {
 		repo: repo,
 	}
 }
-func (s *SaleService) Create(userId int, client clientsCRUD.Sale) (int, error) {
-	return s.repo.Create(userId, client)
+func (s *SaleService) Create(clientId int, client clientsCRUD.Sale) (int, error) {
+	return s.repo.Create(clientId, client)
 }
-func (s *SaleService) GetAll(userId int) ([]clientsCRUD.Sale, error) {
-	return s.repo.GetAll(userId)
+func (s *SaleService) GetAll(clientId int) ([]clientsCRUD.Sale, error) {
+	return s.repo.GetAll(clientId)
 }
-func (s *SaleService) GetById(userId, clientId int) (clientsCRUD.Sale, error) {
-	return s.repo.GetById(userId, clientId)
+func (s *SaleService) GetById(saleId int) (clientsCRUD.Sale, error) {
+	return s.repo.GetById(saleId)
 }
-func (s *SaleService) Delete(userId, clientId int) error {
-	return s.repo.Delete(userId, clientId)
+func (s *SaleService) Delete(saleId int) error {
+	return s.repo.Delete(saleId)
 }
-func (s *SaleService) Update(userId, clientId int, input clientsCRUD.UpdateSale) error {
-	return s.repo.Update(userId, clientId, input)
+func (s *SaleService) Update(saleId int, input clientsCRUD.UpdateSale) error {
+	return s.repo.Update(saleId, input)
 }

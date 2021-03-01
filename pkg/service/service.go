@@ -20,11 +20,11 @@ type Client interface {
 }
 
 type Sale interface {
-	Create(userId int, sale clientsCRUD.Sale) (int, error)
-	GetAll(userId int) ([]clientsCRUD.Sale, error)
-	GetById(userId, saleId int) (clientsCRUD.Sale, error)
-	Delete(userId, saleId int) error
-	Update(userId, saleId int, input clientsCRUD.UpdateSale) error
+	Create(clientId int, sale clientsCRUD.Sale) (int, error)
+	GetAll(clientId int) ([]clientsCRUD.Sale, error)
+	GetById(saleId int) (clientsCRUD.Sale, error)
+	Delete(saleId int) error
+	Update(saleId int, input clientsCRUD.UpdateSale) error
 }
 
 type Service struct {

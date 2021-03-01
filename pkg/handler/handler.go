@@ -29,16 +29,16 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		clients.POST("/", h.createClient)
 		clients.PUT("/:id", h.updateClient)
 		clients.DELETE("/:id", h.deleteClient)
-		sales := router.Group("/sales")
+		sales := clients.Group(":id/sales")
 		{
 			sales.GET("/", h.getAllSales)
-			sales.GET("/:id", h.getByIdSale)
+			sales.POST("/", h.createSale)
 		}
 	}
 
 	sales := router.Group("/sales", h.UserIdentity)
 	{
-		sales.POST("/", h.createSale)
+		sales.GET("/:id", h.getByIdSale)
 		sales.PUT("/:id", h.updateSale)
 		sales.DELETE("/:id", h.deleteSale)
 	}

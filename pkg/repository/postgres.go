@@ -9,7 +9,7 @@ const (
 	usersTable        = "users"
 	salesTable        = "sales"
 	clientsTable      = "clients"
-	clientsSalesTable = "users_sales"
+	clientsSalesTable = "clients_sales"
 )
 
 type Config struct {
